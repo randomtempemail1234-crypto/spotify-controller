@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logging in...</title>
+</head>
+<body>
+  <script>
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const token = params.get('access_token');
+    if (token) {
+      localStorage.setItem('spotify_token', token);
+      window.location.href = 'index.html';
+    } else {
+      document.body.innerText = 'Login failed. Please try again.';
+    }
+  </script>
+</body>
+</html>
